@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import Container from "../components/Container/Container";
+
+const Home = () => {
+  const [value, setValue] = useState();
+  const history = useHistory();
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (!value) {
+      return;
+    }
+    const parts = value.split("/");
+    const link = parts[parts.length - 1];
+    console.log(parts, link);
+    history.push(`/decks/${link}`);
+  };
+
+  return (
+    <div className="home">
+      <Container>
+        <div className="home__form">
+          <input
+            placeholder="Enter FABDB link or id ..."
+            name=""
+            value={value}
+            onChange={handleChange}
+          />
+          <button onClick={handleSubmit}>View Deck</button>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default Home;
