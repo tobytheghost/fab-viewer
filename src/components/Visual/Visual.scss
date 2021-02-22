@@ -4,21 +4,21 @@
   flex-direction: column;
   flex-wrap: wrap;
   &__art {
-    background-size: 500px;
+    background-size: 400px;
     background-position-x: center;
     background-position-y: -6rem;
-    width: 340px;
-    height: 220px;
+    width: 300px;
+    height: 200px;
   }
   &__card {
     margin-right: 0.5rem;
     display: block;
     img {
-      width: 145px;
+      width: 140px;
     }
     &--blitz {
       img {
-        width: 175px;
+        width: 165px;
       }
     }
   }
@@ -39,8 +39,8 @@
     &:before {
       content: "";
       width: 0;
-      height: calc(100% - 7rem);
-      border-top: 7rem solid transparent;
+      height: calc(100% - 5.5rem);
+      border-top: 5.5rem solid transparent;
       border-right: 2rem solid #121212;
       position: absolute;
       left: -2rem;
