@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Container from "../components/Container/Container";
 
+import "./Home.scss";
+
 const Home = () => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -25,12 +27,15 @@ const Home = () => {
       <Container>
         <div className="home__form">
           <input
+            className="home__input"
             placeholder="Enter FABDB link or id ..."
             name=""
             value={value}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>View Deck</button>
+          <button className="button" onClick={handleSubmit}>
+            View Deck
+          </button>
         </div>
       </Container>
     </div>

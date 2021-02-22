@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 import { getDeck } from "../api/fabdb";
 import deckData from "../api/data";
 import Visual from "../components/Visual/Visual";
@@ -146,7 +147,12 @@ const Deck = () => {
     return (
       <div className="deck">
         <Container>
-          <div style={{ textAlign: "center" }}>{error}</div>
+          <div style={{ textAlign: "center" }}>
+            <div className="error">{error}</div>
+            <Link to="/" className="button">
+              Return home
+            </Link>
+          </div>
         </Container>
       </div>
     );

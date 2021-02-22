@@ -1,0 +1,28 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  .container {
+    display: flex;
+    place-content: center;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+  }
+  &__input {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #121212;
+    text-align: center;
+  }
+  .button {
+    font-size: 1.5rem;
+  }
+}
