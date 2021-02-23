@@ -102,7 +102,11 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
           </div>
         </div>
         <div className="visual__deck">
-          <div className={`visual__main visual__main--${format}`}>
+          <div
+            className={`visual__main visual__main--${format} visual__main--${
+              stats.mainCount > 60 ? "wide" : "normal"
+            }`}
+          >
             {main?.map((pile, i) => (
               <div key={i} className="visual__pile">
                 {pile?.map((card, i) => (
@@ -118,7 +122,11 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
               </div>
             ))}
           </div>
-          <div className={`visual__equipment visual__equipment--${format}`}>
+          <div
+            className={`visual__equipment visual__equipment--${format} visual__equipment--${
+              stats.mainCount > 60 ? "wide" : "normal"
+            }`}
+          >
             {weapons?.map((card, i) => (
               <HoverCard
                 key={i}

@@ -71,12 +71,12 @@
     margin-right: 0.5rem;
     display: block;
     img {
-      width: 140px;
+      width: 150px;
       cursor: pointer;
     }
     &--blitz {
       img {
-        width: 165px;
+        width: 185px;
       }
     }
   }
@@ -99,7 +99,7 @@
   }
   &__equipment {
     position: relative;
-    flex: 0.15;
+    width: calc(150px + 2rem);
     #{$self}__card {
       z-index: 1;
       margin-right: unset;
@@ -109,9 +109,17 @@
       height: 1.75rem;
     }
     &--blitz {
-      flex: 0.2;
+      width: calc(185px + 2rem);
       #{$self}__card {
         height: 2rem;
+      }
+    }
+    &--wide {
+      width: calc(135px + 2rem);
+      #{$self}__card {
+        img {
+          width: 135px;
+        }
       }
     }
     > #{$self}__card:last-child {
@@ -136,9 +144,14 @@
     flex-wrap: wrap;
     //place-content: space-between;
     place-content: flex-start;
-    flex: 0.85;
-    &--blitz {
-      flex: 0.8;
+    flex: 1;
+    &--wide {
+      flex: 1;
+      #{ $self }__card {
+        img {
+          width: 135px;
+        }
+      }
     }
   }
   &__name {
