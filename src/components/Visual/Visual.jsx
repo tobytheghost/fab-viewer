@@ -9,7 +9,7 @@ import "./Visual.scss";
 
 const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
   const [preview, setPreview] = useState({});
-  // const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
+  const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
   const [showModal, setShowModal] = useState(false);
 
   const handleClose = () => setShowModal(false);
@@ -143,9 +143,9 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
         </div>
         <div className="visual__footer"></div>
         <Modal show={showModal} onHide={handleClose}>
-          {/* <Modal.Header closeButton>
-          <Modal.Title>{preview?.name}</Modal.Title>
-        </Modal.Header> */}
+          {/* <Modal.Header>
+            <Modal.Title>{preview?.name}</Modal.Title>
+          </Modal.Header> */}
           <Modal.Body>
             <img src={preview?.image || `/cardback.png`} />
           </Modal.Body>
@@ -156,13 +156,28 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
         </Modal.Footer> */}
         </Modal>
       </div>
-      <button className="button" onClick={downloadPreview}>
+      {/* {preview && (
+        <img
+          className="preview__image"
+          src={preview.image}
+          alt={preview.name}
+          style={{
+            position: "fixed",
+            // top: "500px",
+            // left: "500px",
+            transform: "translate(-120%, -50%)",
+            top: previewPosition.y,
+            left: previewPosition.x,
+          }}
+        />
+      )} */}
+      <button className="visual-button" onClick={downloadPreview}>
         {downloading ? (
-          <span className="button__label">
+          <span className="visual-button__label">
             <div className="deck__loader"></div>
           </span>
         ) : (
-          <span className="button__label">Download Image</span>
+          <span className="visual-button__label">Download Image</span>
         )}
       </button>
     </>
