@@ -29,6 +29,7 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
         <div
           className="visual__art"
           style={{ backgroundImage: `url(${hero.image})` }}
+          onClick={() => handleClick(hero)}
         ></div>
         <div className="visual__title">
           <h1 className="visual__name">{name}</h1>

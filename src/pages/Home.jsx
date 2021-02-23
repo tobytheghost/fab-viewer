@@ -18,7 +18,6 @@ const Home = () => {
     }
     const parts = value.split("/");
     const link = parts[parts.length - 1];
-    console.log(parts, link);
     history.push(`/decks/${link}`);
   };
 
