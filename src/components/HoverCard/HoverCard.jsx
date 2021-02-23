@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import useMousePosition from "../../hooks/useMousePosition";
 
-const HoverCard = ({ card, format, setPreview, setPreviewPosition }) => {
+const HoverCard = ({ card, format, handleClick }) => {
   //   const { x, y } = useMousePosition();
   //   const [hovered, setHovered] = useState(false);
 
@@ -29,15 +29,16 @@ const HoverCard = ({ card, format, setPreview, setPreviewPosition }) => {
   //   }, [hovered]);
 
   return (
-    <a
+    <div
       //   onMouseEnter={handleMouseEnter}
       //   onMouseLeave={handleMouseLeave}
       className={`visual__card visual__card--${format}`}
       href={card.image}
       target="_blank"
+      onClick={() => handleClick(card)}
     >
       <img src={card.image || "/cardback.png"} alt={card.name} />
-    </a>
+    </div>
   );
 };
 

@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 import HoverCard from "../HoverCard/HoverCard";
 
 import "./Visual.scss";
 
-const Visual = ({ name, format, main, hero, equipment, stats }) => {
-  // const [preview, setPreview] = useState("");
+const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
+  const [preview, setPreview] = useState({});
   // const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0 });
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
+  const handleClick = (preview) => {
+    setPreview(preview);
+    handleShow();
+  };
 
   const capitalize = (string) => {
     return string[0].toUpperCase() + string.slice(1);
@@ -25,6 +36,16 @@ const Visual = ({ name, format, main, hero, equipment, stats }) => {
             {hero.name} - {capitalize(format)}
           </h2>
           <div className="visual__divider">
+            <svg
+              height="100%"
+              width="40"
+              style={{
+                position: "absolute",
+                left: "-40px",
+              }}
+            >
+              <polygon points="40 0, 40 90, 0 90" style={{ fill: "#121212" }} />
+            </svg>
             <ul className="visual__stats">
               <li className="visual__stat">
                 Attack Actions: {stats.attackActions}
@@ -63,6 +84,7 @@ const Visual = ({ name, format, main, hero, equipment, stats }) => {
                   key={i}
                   card={card}
                   format={format}
+                  handleClick={handleClick}
                   // setPreview={setPreview}
                   // setPreviewPosition={setPreviewPosition}
                 />
@@ -71,11 +93,22 @@ const Visual = ({ name, format, main, hero, equipment, stats }) => {
           ))}
         </div>
         <div className="visual__equipment">
+          {weapons?.map((card, i) => (
+            <HoverCard
+              key={i}
+              card={card}
+              format={format}
+              handleClick={handleClick}
+              // setPreview={setPreview}
+              // setPreviewPosition={setPreviewPosition}
+            />
+          ))}
           {equipment?.map((card, i) => (
             <HoverCard
               key={i}
               card={card}
               format={format}
+              handleClick={handleClick}
               // setPreview={setPreview}
               // setPreviewPosition={setPreviewPosition}
             />
@@ -83,19 +116,19 @@ const Visual = ({ name, format, main, hero, equipment, stats }) => {
         </div>
       </div>
       <div className="visual__footer"></div>
-      {/* {preview && (
-        <div
-          className="visual__preview"
-          style={{
-            position: "fixed",
-            top: previewPosition.y,
-            left: previewPosition.x,
-            zIndex: 99,
-          }}
-        >
-          <img src={preview} />
-        </div>
-      )} */}
+      <Modal show={showModal} onHide={handleClose}>
+        {/* <Modal.Header closeButton>
+          <Modal.Title>{preview?.name}</Modal.Title>
+        </Modal.Header> */}
+        <Modal.Body>
+          <img src={preview?.image} />
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer> */}
+      </Modal>
     </div>
   );
 };

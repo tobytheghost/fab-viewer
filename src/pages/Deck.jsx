@@ -17,6 +17,7 @@ const Deck = () => {
   const [equipment, setEquipment] = useState([]);
   const [stats, setStats] = useState({});
   const [error, setError] = useState("");
+  const [weapons, setWeapons] = useState([]);
 
   useEffect(() => {
     const parseData = (data) => {
@@ -25,17 +26,26 @@ const Deck = () => {
       const heros = cards.filter((card) => card.keywords?.includes("hero"));
 
       const equipment = cards
-        .filter(
-          (card) =>
-            card.keywords?.includes("equipment") ||
-            card.keywords?.includes("weapon")
-        )
-        .sort((a, b) => b.name - a.name);
+        .filter((card) => card.keywords?.includes("equipment"))
+        .sort((a, b) => b.name - a.name)
+        .flatMap((card) => {
+          const arr = [];
+          return arr.concat(
+            Array.apply(null, Array(card.total)).map(() => card)
+          );
+        });
 
-      const equipmentCount = equipment?.reduce(
-        (sum, card) => sum + (card.total || 0),
-        0
-      );
+      const weapons = cards
+        .filter((card) => card.keywords?.includes("weapon"))
+        .sort((a, b) => b.name - a.name)
+        .flatMap((card) => {
+          const arr = [];
+          return arr.concat(
+            Array.apply(null, Array(card.total)).map(() => card)
+          );
+        });
+
+      const equipmentCount = equipment.length + weapons.length;
 
       const attackActions = cards
         .filter(
@@ -110,6 +120,9 @@ const Deck = () => {
       if (equipment.length) {
         setEquipment(equipment);
       }
+      if (weapons.length) {
+        setWeapons(weapons);
+      }
       if (piles.length) {
         setMain(piles);
       }
@@ -168,6 +181,7 @@ const Deck = () => {
           hero={hero}
           equipment={equipment}
           stats={stats}
+          weapons={weapons}
         />
       </Container>
     </div>

@@ -1,8 +1,41 @@
+@import "../../../node_modules/bootstrap/scss/_functions";
+@import "../../../node_modules/bootstrap/scss/_variables";
+@import "../../../node_modules/bootstrap/scss/_mixins";
+@import "../../../node_modules/bootstrap/scss/_modal.scss";
+@import "../../../node_modules/bootstrap/scss/_buttons.scss";
+@import "../../../node_modules/bootstrap/scss/_close.scss";
+
+.sr-only {
+  display: none;
+}
+
+.modal-body {
+  text-align: center;
+  padding: 0;
+}
+.modal-content {
+  background: unset;
+  border: 0;
+}
+
+.modal {
+  display: flex !important;
+  place-items: center;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: calc(300px + 2rem);
+  }
+}
+
 .visual {
   $self: &;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   &__art {
     background-size: 400px;
     background-position-x: center;
@@ -13,6 +46,7 @@
   &__card {
     margin-right: 0.5rem;
     display: block;
+    cursor: pointer;
     img {
       width: 140px;
     }
@@ -36,16 +70,7 @@
     color: #fff;
     flex: 1;
     justify-content: center;
-    &:before {
-      content: "";
-      width: 0;
-      height: calc(100% - 5.5rem);
-      border-top: 5.5rem solid transparent;
-      border-right: 2rem solid #121212;
-      position: absolute;
-      left: -2rem;
-      z-index: 10;
-    }
+    height: 90px;
   }
   &__equipment {
     position: relative;
