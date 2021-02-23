@@ -35,9 +35,12 @@ const HoverCard = ({ card, format, handleClick }) => {
       className={`visual__card visual__card--${format}`}
       href={card.image}
       target="_blank"
-      onClick={() => handleClick(card)}
     >
-      <img src={card.image || "/cardback.png"} alt={card.name} />
+      <img
+        src={card.image || "/cardback.png"}
+        alt={card.name}
+        onClick={() => handleClick(card)}
+      />
     </div>
   );
 };

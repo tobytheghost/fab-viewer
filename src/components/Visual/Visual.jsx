@@ -28,13 +28,18 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
       <div className="visual__header">
         <div
           className="visual__art"
-          style={{ backgroundImage: `url(${hero.image})` }}
+          style={
+            hero.image
+              ? { backgroundImage: `url(${hero.image})` }
+              : { background: `#eee` }
+          }
           onClick={() => handleClick(hero)}
         ></div>
         <div className="visual__title">
           <h1 className="visual__name">{name}</h1>
           <h2 className="visual__info">
-            {hero.name} - {capitalize(format)}
+            {hero.name ? `${hero.name} - ` : ""}
+            {capitalize(format)}
           </h2>
           <div className="visual__divider">
             <svg
@@ -77,7 +82,7 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
         </div>
       </div>
       <div className="visual__deck">
-        <div className="visual__main">
+        <div className={`visual__main visual__main--${format}`}>
           {main?.map((pile, i) => (
             <div key={i} className="visual__pile">
               {pile?.map((card, i) => (
@@ -93,7 +98,7 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
             </div>
           ))}
         </div>
-        <div className="visual__equipment">
+        <div className={`visual__equipment visual__equipment--${format}`}>
           {weapons?.map((card, i) => (
             <HoverCard
               key={i}
@@ -122,7 +127,7 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
           <Modal.Title>{preview?.name}</Modal.Title>
         </Modal.Header> */}
         <Modal.Body>
-          <img src={preview?.image} />
+          <img src={preview?.image || `/cardback.png`} />
         </Modal.Body>
         {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

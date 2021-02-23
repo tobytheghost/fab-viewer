@@ -47,9 +47,9 @@
   &__card {
     margin-right: 0.5rem;
     display: block;
-    cursor: pointer;
     img {
-      width: 140px;
+      width: 130px;
+      cursor: pointer;
     }
     &--blitz {
       img {
@@ -75,7 +75,10 @@
   }
   &__equipment {
     position: relative;
-    flex: 0.2;
+    flex: 0.15;
+    &--blitz {
+      flex: 0.2;
+    }
     #{$self}__card {
       z-index: 1;
       margin-right: unset;
@@ -89,84 +92,140 @@
         position: absolute;
         z-index: 2;
         top: 5%;
+        top: 2rem;
       }
       &:nth-child(3) {
         position: absolute;
         z-index: 3;
         top: 10%;
+        top: 4rem;
       }
       &:nth-child(4) {
         position: absolute;
         z-index: 4;
         top: 15%;
+        top: 6rem;
       }
       &:nth-child(5) {
         position: absolute;
         z-index: 5;
         top: 20%;
+        top: 8rem;
       }
       &:nth-child(6) {
         position: absolute;
         z-index: 6;
         top: 25%;
+        top: 10rem;
       }
       &:nth-child(7) {
         position: absolute;
         z-index: 7;
         top: 30%;
+        top: 12rem;
       }
       &:nth-child(8) {
         position: absolute;
         z-index: 8;
         top: 35%;
+        top: 14rem;
       }
       &:nth-child(9) {
         position: absolute;
         z-index: 9;
         top: 40%;
+        top: 16rem;
       }
       &:nth-child(10) {
         position: absolute;
         z-index: 10;
         top: 45%;
+        top: 18rem;
       }
       &:nth-child(11) {
         position: absolute;
         z-index: 11;
         top: 50%;
+        top: 20rem;
       }
-      //   &--blitz {
-      //     &:nth-child(2) {
-      //       top: 5%;
-      //     }
-      //     &:nth-child(3) {
-      //       top: 10%;
-      //     }
-      //     &:nth-child(4) {
-      //       top: 15%;
-      //     }
-      //     &:nth-child(5) {
-      //       top: 20%;
-      //     }
-      //     &:nth-child(6) {
-      //       top: 25%;
-      //     }
-      //     &:nth-child(7) {
-      //       top: 30%;
-      //     }
-      //     &:nth-child(8) {
-      //       top: 35%;
-      //     }
-      //     &:nth-child(9) {
-      //       top: 40%;
-      //     }
-      //     &:nth-child(10) {
-      //       top: 45%;
-      //     }
-      //     &:nth-child(11) {
-      //       top: 50%;
-      //     }
-      //   }
+      &:nth-child(12) {
+        position: absolute;
+        z-index: 12;
+        top: 55%;
+        top: 22rem;
+      }
+      &:nth-child(13) {
+        position: absolute;
+        z-index: 13;
+        top: 60%;
+        top: 24rem;
+      }
+      &:nth-child(14) {
+        position: absolute;
+        z-index: 14;
+        top: 65%;
+        top: 26rem;
+      }
+      &:nth-child(15) {
+        position: absolute;
+        z-index: 15;
+        top: 70%;
+        top: 28rem;
+      }
+      &:nth-child(16) {
+        position: absolute;
+        z-index: 16;
+        top: 75%;
+        top: 30rem;
+      }
+      &:nth-child(17) {
+        position: absolute;
+        z-index: 17;
+        top: 80%;
+        top: 32rem;
+      }
+      &:nth-child(18) {
+        position: absolute;
+        z-index: 18;
+        top: 85%;
+        top: 34rem;
+      }
+      &:nth-child(19) {
+        position: absolute;
+        z-index: 19;
+        top: 90%;
+        top: 36rem;
+      }
+      &:nth-child(20) {
+        position: absolute;
+        z-index: 20;
+        top: 95%;
+        top: 38rem;
+      }
+      &:nth-child(21) {
+        position: absolute;
+        z-index: 21;
+        top: 95%;
+        top: 40rem;
+      }
+      &:nth-child(22) {
+        position: absolute;
+        z-index: 22;
+        top: 95%;
+        top: 42rem;
+      }
+      &:nth-child(23) {
+        position: absolute;
+        z-index: 23;
+        top: 95%;
+        top: 44rem;
+      }
+      &:nth-child(24) {
+        position: absolute;
+        z-index: 24;
+        top: 95%;
+        top: 46rem;
+      }
     }
   }
   &__footer {
@@ -196,7 +255,10 @@
     display: flex;
     flex-wrap: wrap;
     //place-content: space-between;
-    flex: 0.8;
+    flex: 0.85;
+    &--blitz {
+      flex: 0.8;
+    }
   }
   &__name {
     padding: 0 0.5rem;
@@ -207,32 +269,37 @@
     #{$self}__card {
       z-index: 1;
       &:nth-child(1) {
-        padding-bottom: 79%;
+        padding-bottom: 113%;
       }
       &:nth-child(2) {
         position: absolute;
         z-index: 2;
         top: 7.5%;
+        top: 2rem;
       }
       &:nth-child(3) {
         position: absolute;
         z-index: 3;
         top: 15%;
+        top: 4rem;
       }
       &:nth-child(4) {
         position: absolute;
         z-index: 4;
         top: 22.5%;
+        top: 6rem;
       }
       &:nth-child(5) {
         position: absolute;
         z-index: 5;
         top: 30%;
+        top: 8rem;
       }
       &:nth-child(6) {
         position: absolute;
         z-index: 6;
         top: 37.5%;
+        top: 10rem;
       }
       &--blitz {
         &:nth-child(1) {
