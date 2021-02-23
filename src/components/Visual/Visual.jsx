@@ -15,8 +15,8 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
   const handleShow = () => setShowModal(true);
 
   const handleClick = (preview) => {
-    setPreview(preview);
     handleShow();
+    setPreview(preview);
   };
 
   const capitalize = (string) => {
@@ -44,13 +44,13 @@ const Visual = ({ name, format, main, hero, equipment, stats, weapons }) => {
           <div className="visual__divider">
             <svg
               height="100%"
-              width="40"
+              width="30"
               style={{
                 position: "absolute",
-                left: "-40px",
+                left: "-30px",
               }}
             >
-              <polygon points="40 0, 40 90, 0 90" style={{ fill: "#121212" }} />
+              <polygon points="30 0, 30 90, 0 90" style={{ fill: "#121212" }} />
             </svg>
             <ul className="visual__stats">
               <li className="visual__stat">
